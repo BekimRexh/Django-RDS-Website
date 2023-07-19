@@ -1,0 +1,64 @@
+{% load static %}
+
+<style>
+    nav.navbar {
+        background-color: #033fad;
+        margin-top: 20px;
+    }
+    nav.navbar a {
+        border-radius: 20px 0 0px 20px;
+        font-size: 14px;
+        color: #F2F9FF;
+        text-decoration: none;
+        padding: 10px 15px;
+        position: relative;
+        z-index: 1;
+    }
+    nav.navbar a::before {
+        left: -5px;
+        background-color: #F2F9FF;
+        border-radius: 20px 0 0 20px;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    nav.navbar a.active {
+        background-color: #F2F9FF;
+        color: #033fad;
+    }
+    nav.navbar a.active::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        background-color: #F2F9FF;
+        border-top-right-radius: 50% 20px;
+        border-bottom-right-radius: 50% 20px;
+        z-index: -1;
+    }
+    
+</style>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="/" onclick="toggleActive(event)"><img src="{% static 'images/home.svg' %}" alt="Dashboard Icon"><span>Dashboard</span></a></li>
+        <li><a href="/clients" onclick="toggleActive(event)"><img src="{% static 'images/briefcase.svg' %}" alt="Clients Icon"><span>Clients</span></a></li>
+        <li><a href="/translators" onclick="toggleActive(event)"><img src="{% static 'images/users.svg' %}" alt="Translators Icon"><span>Translators</span></a></li>
+        <li><a href="/venues" onclick="toggleActive(event)"><img src="{% static 'images/crosshair.svg' %}" alt="Venues Icon"><span>Venues</span></a></li>
+    </ul>
+</nav>
+
+<script>
+    function toggleActive(event) {
+        const currentLink = event.currentTarget;
+        const links = document.querySelectorAll('.navbar a');
+
+        links.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        currentLink.classList.add('active');
+    }
+
+</script>

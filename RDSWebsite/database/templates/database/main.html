@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        body {
+            background-color: #033fad;
+            padding-left: 25px;
+            display: flex;
+            flex-direction: column;
+            min-height: 400vh;
+        }
+        
+        .topbar {
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            padding-right: 20px;
+        }
+
+        .navbar {
+            background-color: #033fad;
+            /* padding-left: 20px; */
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .content {
+            background-color: #F2F9FF;
+            padding: 20px;
+            flex-grow: 1;
+            margin-left: -30px;
+            margin-top: -35px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="topbar">
+        {% include 'database/topbar.html' %}
+    </div>
+
+    <div class="container">
+        <div class="navbar">
+            {% include 'database/navbar.html' %}
+        </div>
+        <div class="content">
+            {% block content %}
+                <!-- Content goes here -->
+            {% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

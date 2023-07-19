@@ -1,0 +1,22 @@
+{% load static %}
+
+<style>
+    
+    @media (max-width: 1000px) {
+        
+        .mobile-menu-bar a span {
+            display: none;
+            margin-bottom: 20px;
+        }
+    }
+    
+</style>
+
+<div class="mobile-menu md:hidden">
+    <div class="mobile-menu-bar">
+        <a href="" class="flex mr-auto">
+            <img src="{% static 'images/layers.svg' %}" alt="Logo Icon">
+            <span style="color: white;">RDSTranslations</span>
+        </a>
+    </div>
+</div>
